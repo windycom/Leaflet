@@ -81,13 +81,13 @@ export var TouchZoom = Handler.extend({
 		}
 
 		// PATCH PATCH PATCH
-		if( map._zoomCenter ) {
-			var myZoom_ = Math.round( this._zoom )
-			if( myZoom_ !== map.getZoom() ) {
-				map.setZoomAround( map._zoomCenter, myZoom_, { animate: true });
+		if (map._zoomCenter) {
+			var myZoom_ = Math.round(this._zoom);
+			if (myZoom_ !== map.getZoom()) {
+				map.setZoomAround(map._zoomCenter, myZoom_, {animate: true});
 			}
-			preventDefault(e);
-			return
+			DomEvent.preventDefault(e);
+			return;
 		}
 		// END OF PATCH
 
@@ -127,8 +127,8 @@ export var TouchZoom = Handler.extend({
 		DomEvent.off(document, 'touchend', this._onTouchEnd);
 
 		// PATCH PATCH PATCH
-		if( this._map._zoomCenter ) {
-			return
+		if (this._map._zoomCenter) {
+			return;
 		}
 
 		// Pinch updates GridLayers' levels only when zoomSnap is off, so zoomSnap becomes noUpdate.
