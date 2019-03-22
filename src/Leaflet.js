@@ -25,3 +25,9 @@ export * from './map/index';
 
 import {freeze} from './core/Util';
 Object.freeze = freeze;
+
+// PATCH PATCH PATCH
+import './windyPatches/Map.SingleClick';
+import {TileLayerMulti, tileLayerMulti} from './windyPatches/TileLayer.Multi';
+
+export {TileLayerMulti, tileLayerMulti};

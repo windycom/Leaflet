@@ -1,5 +1,12 @@
 # Windy's patched version of Leaflet library
 
+Changes applied:
+
+**Added:**
+ * src/windyPatches/Map.SingleClick.js
+ * src/windyPatches/TileLayer.Multi.js
+
+**Patched**
 A nasty hack enable to touch zoom with some specified
 `x,y` point "locked" at its position. For instance weather picker
 at Windy.com.
