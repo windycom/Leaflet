@@ -25,6 +25,9 @@ var TouchZoom = Handler.extend({
 
 		if( map._zoomCenter ) {
 			var myZoom_ = Math.round( this._zoom )
+
+			// ..
+
 			if( myZoom_ !== map.getZoom() ) {
 				map.setZoomAround( map._zoomCenter, myZoom_, { animate: true });
 			}

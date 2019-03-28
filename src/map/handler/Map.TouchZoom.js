@@ -82,9 +82,9 @@ export var TouchZoom = Handler.extend({
 
 		// PATCH PATCH PATCH
 		if (map._zoomCenter) {
-			var myZoom_ = Math.round(this._zoom);
-			if (myZoom_ !== map.getZoom()) {
-				map.setZoomAround(map._zoomCenter, myZoom_, {animate: true});
+			var rqstdZoom = Math.round(this._zoom);
+			if (rqstdZoom !== map.getZoom() && rqstdZoom >= map.getMinZoom() && rqstdZoom <= map.getMaxZoom()) {
+				map.setZoomAround(map._zoomCenter, rqstdZoom, {animate: true});
 			}
 			DomEvent.preventDefault(e);
 			return;
