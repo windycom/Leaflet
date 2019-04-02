@@ -817,7 +817,7 @@ export var GridLayer = Layer.extend({
 			Util.requestAnimFrame(Util.bind(this._tileReady, this, coords, null, tile));
 		}
 
-		DomUtil.setPosition(tile, tilePos);
+		DomUtil.setPosition(tile, tilePos, this.options.disableTransformForTiles);
 
 		// save tile in cache
 		this._tiles[key] = {
