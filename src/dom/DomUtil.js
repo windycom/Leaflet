@@ -223,17 +223,17 @@ export function setTransform(el, offset, scale) {
 		(scale ? ' scale(' + scale + ')' : '');
 }
 
-// @function setPosition(el: HTMLElement, position: Point)
+// @function setPosition(el: HTMLElement, position: Point, disableTransform: boolean)
 // Sets the position of `el` to coordinates specified by `position`,
 // using CSS translate or top/left positioning depending on the browser
 // (used by Leaflet internally to position its layers).
-export function setPosition(el, point) {
+export function setPosition(el, point, disableTransform) {
 
 	/*eslint-disable */
 	el._leaflet_pos = point;
 	/* eslint-enable */
 
-	if (Browser.any3d) {
+	if (!disableTransform && Browser.any3d) {
 		setTransform(el, point);
 	} else {
 		el.style.left = point.x + 'px';
