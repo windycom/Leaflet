@@ -49,3 +49,11 @@ function setTransform(el, offset, scale) {
 	// ...
 }
 ```
+
+This patch solves wrong detection of pointer Events browser in iOS. https://github.com/Leaflet/Leaflet/issues/6817
+
+```js
+// 'false' for all iOS devices, that (as of version iOS13 support both, touch and poiter events)
+// Unfortunatedlly as of iOS13 it is not possible to distinguish iPad from OS X by user agent string
+export var pointer = !!(window.PointerEvent || msPointer) && (window.W && (window.W.target !== 'mobile')) && !userAgentContains('iphone');
+```

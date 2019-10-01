@@ -92,7 +92,9 @@ export var msPointer = !window.PointerEvent && window.MSPointerEvent;
 
 // @property pointer: Boolean
 // `true` for all browsers supporting [pointer events](https://msdn.microsoft.com/en-us/library/dn433244%28v=vs.85%29.aspx).
-export var pointer = !!(window.PointerEvent || msPointer);
+// 'false' for all iOS devices, that (as of version iOS13 support both, touch and poiter events)
+// Unfortunatedlly as of iOS13 it is not possible to distinguish iPad from OS X by user agent string
+export var pointer = !!(window.PointerEvent || msPointer) && (window.W && (window.W.target !== 'mobile')) && !userAgentContains('iphone');
 
 // @property touch: Boolean
 // `true` for all browsers supporting [touch events](https://developer.mozilla.org/docs/Web/API/Touch_events).
